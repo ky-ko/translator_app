@@ -1,0 +1,13 @@
+services:
+  translator:
+    build: .
+    container_name: translator_app
+    ports:
+      - "8502:8502"
+    env_file: .env
+    environment:
+      LOG_FILE: /app/logs/translator.log
+    volumes:
+      - ./logs:/app/logs
+      - ./static:/app/static
+    restart: unless-stopped
