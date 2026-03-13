@@ -55,12 +55,12 @@ def _cleanup_cache() -> None:
             pass
 
 
-@st.cache_data(ttl=3600, show_spinner=False)
-def _run_cleanup(_hour: int) -> None:
+@st.cache_data(ttl=86400, show_spinner=False)
+def _run_cleanup(_day: int) -> None:
     _cleanup_cache()
 
 
-_run_cleanup(int(time.time() // 3600))
+_run_cleanup(int(time.time() // 86400))
 
 st.set_page_config(page_title="Norwegian DOCX Translator", page_icon="\U0001f310")
 st.title("Norwegian \u2192 English DOCX Translator")
