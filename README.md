@@ -50,8 +50,8 @@ App is available at `http://localhost:8502`.
 ### Run locally (without Docker)
 
 ```bash
-pip install -r requirements.txt
-streamlit run app.py --server.enableStaticServing=true
+uv sync
+uv run streamlit run app.py --server.enableStaticServing=true
 ```
 
 ## File structure
@@ -61,6 +61,6 @@ streamlit run app.py --server.enableStaticServing=true
 | `app.py` | Streamlit UI — upload, language selector, download links |
 | `translator.py` | Translation pipeline — Azure Document Translation + Claude |
 | `credits_logger.py` | Rolling log handler (keeps last N lines) |
-| `Dockerfile` | python:3.11-slim, port 8502, static file serving enabled |
+| `Dockerfile` | uv + Python 3.14, port 8502, static file serving enabled |
 | `docker-compose.yml` | Port mapping, env file, volume mounts for logs and cache |
 | `.env.example` | Template for required environment variables |
